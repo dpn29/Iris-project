@@ -17,3 +17,5 @@ In the learning curve diagram, the training set cost converges very quickly to t
 The sample size of 150 is quite small and this causes a lot of variation in the accuracies. In 20 runs, the test set accuracy was between 0.88 and 1 with an average of 0.96 (one mistake out of 25 predictions on completely new data).
 
 Iris-setosa is easy to distinguish from the other two variants while Iris-versicolor causes the most trouble. This is seen from an analysis of the errors of the predictor as well as substantially highers cost for the binary logistic classifier responsible for separating Iris-versicolor samples (elements 2000-4000 of cost_history) compared to the other two binary classifiers.
+
+## Neural network
