@@ -1,0 +1,31 @@
+import pandas as pd
+import numpy as np
+from scipy.special import expit as sigmoid
+from scipy import linalg
+import matplotlib.pyplot as plt
+
+def getdata():
+    global X, Y
+    data = pd.read_csv("irisdata.csv")
+    X = data[["sepal length", "sepal width", "petal length", "petal width"]].to_numpy()
+    X = np.append(np.ones((150,1)), X, axis=1)
+    Y = np.zeros((150,3))
+    for i in range(150):
+        if data["type"][i] == "Iris-setosa":
+            Y[i][0] = 1
+        if data["type"][i] == "Iris-versicolor":
+            Y[i][1] = 1
+        if data["type"][i] == "Iris-virginica":
+            Y[i][2] = 1
+            
+ def createsets():
+    global X, Y, Xtrain, Ytrain, Xcv, Ycv, Xtest, Ytest
+    randperm = np.random.permutation(range(150))
+    X = X[randperm, :]
+    Y = Y[randperm, :]
+    Xtrain = X[0:100, :]
+    Ytrain = Y[0:100, :]
+    Xcv = X[100:125, :]
+    Ycv = Y[100:125, :]
+    Xtest = X[125:150, :]
+    Ytest = Y[125:150, :]
