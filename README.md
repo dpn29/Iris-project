@@ -21,3 +21,15 @@ Iris-setosa is easy to distinguish from the other two variants while Iris-versic
 I committed 2 mistakes: visualised the data only after running the algorithm (so I had no idea which group could be problematic or that polinomial features will be useful for classifying versicolor samples) and I explicitly wrote the data dimensions in the algorithm instead of obtaining it from the sample (so running on other datasets or with extra features will require some adjustment).
 
 ## Neural network
+
+I implemented a 1-hidden-layer neural network with 3 neurons (plus the constant neuron) in the hidden layer (so there are 3x5+3x4=27 weights in total). The neural network works for general sample size m, number of features n and number of groups K. The number of neurons in the hidden layer can also be changed by adjusting a variable. Hence the only restriction is that there is only one hidden layer; this is accepable in our case because, with a training set size of 100, we would get bad overfitting with additional layers.
+
+Hyperparameters in the model are therefore the size of the hidden layer H, the regularisation parameter Lambda, the learning rate Alpha and the number of iterations for the optimisation algorithm (batch gradient descent). These, or least H and Alpha, should be chosen by the algorithm with respect to the cross-validation set, but I have not implemented this feature (see below).
+
+### Key takeaways
+
+The whole thing went **surprisingly** easily and worked neatly. The network architecture (H=3) was chosen arbitrarily but turned out to work, I have not (yet) experimented with changing it. I was worried that 27 parameters would overfit the training set but this did not turn out to be the case: even without regularisation, there was no noticable difference in the average performance on the training set versus the cross-validation set across multiple runs.
+
+to write about: flat part of cost curve
+optimisation algorithm
+use pre-defined models
