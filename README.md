@@ -30,6 +30,8 @@ Hyperparameters in the model are therefore the size of the hidden layer H, the r
 
 The whole thing went **surprisingly** easily and worked neatly. The network architecture (H=3) was chosen arbitrarily but turned out to work, I have not (yet) experimented with changing it. I was worried that 27 parameters would overfit the training set but this did not turn out to be the case: even without regularisation, there was no noticable difference in the average performance on the training set versus the cross-validation set across multiple runs.
 
+
+
 to write about: flat part of cost curve
 optimisation algorithm
 use pre-defined models
