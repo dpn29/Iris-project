@@ -30,7 +30,9 @@ Hyperparameters in the model are therefore the size of the hidden layer H, the r
 
 The whole thing went **surprisingly** easily and worked neatly. The network architecture (H=3) was chosen arbitrarily but turned out to work, I have not (yet) experimented with changing it. I was worried that 27 parameters would overfit the training set but this did not turn out to be the case: even without regularisation, there was no noticable difference in the average performance on the training set versus the cross-validation set across multiple runs.
 
-
+Plotting the value of the cost function against the number of iterations of gradient descent, I got the following image:
+![Image of cost](https://github.com/dpn29/Iris-project/blob/master/cost%20history.PNG)
+After rapid decrease at the very beginning, the curve becomes quite flat until about 200 iterations. Restricting num_iters to 100 and observing output of the algorithm, I noticed that the following was happening. The netural network started correctly predicting setosa samples and classiefied versicolor AND virginica samples as virginica (achieving only 66% accuracy). Fortunately, this did not turn out to be a local minimum and after more iterations the neural network managed to distinguish between versicolor and virginica.
 
 to write about: flat part of cost curve
 optimisation algorithm
