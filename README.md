@@ -43,3 +43,14 @@ It was fun to implement a netural network from scratch (except for the linear al
 
 ## Support vector machine
 
+I implemented a support vector machine both without a kernel and with the Gaussian kernel. I used the Nelder-Mead optimisation algorithm from scipy.optimize because gradient descent wouldn't run fast enough. The hyperparameter C was optimised based on the cross-validation set but I neglected optimising sigma (because it would have taken too long to run with the kernel implementation and the features were normalised anyways). I used all 100 training set samples as landarks in the kernel implementation.
+
+### Key takeaways
+
+Training the SVM with kernel started to take a long time (100 features).  The model did not overfit (the test accuracy was close to the training accuracy) as the certain variants were grouped together. The sample size was too small, so some runs produced the weird result that the test accuracy was a couple of percantage points better than the training accuracy. As it took a lot of time to train the model, I did not do many runs to take an average (like with the logistic regression).
+
+## Overall takeaways
+
+Each of the 3 models achieved approximately the same accuracy, about 96% on the test set. There was quite a lot of variantion across runs because each model struggled most with versicolor samples, so the results were driven by how many versicolor samples fell in the test set. The neural network seemed to be the most stable, followed by logistic regression and the support vector machine. The worse performance of the SVM is somewhat surprising, given how powerful a method it is. I believe each model could be improved: the neural network by experimenting with different architectures and the regression and SVM without kernel by feature engineering. However, I see more learning potential in spending my time on a new project.
+
+It was fun to code the algorithms without making use of machine learning libraries but my goal is to be a good data scientist, not a good programmer. Using predefined models makes experimentation and arriving at conclusions much easier and faster. It is time to improve my scikit-learn, Keras and TensorFlow skills.
